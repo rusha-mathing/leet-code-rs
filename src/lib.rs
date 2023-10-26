@@ -1,3 +1,7 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+pub struct Solution();
+
+impl Solution {
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        todo!("WRITE SOLUTION")
+    }
 }
