@@ -22,4 +22,9 @@ mod tests {
     fn test_3() {
         assert!(vec_eq(Solution::two_sum(vec![3, 3], 6), vec![0, 1]))
     }
+
+    #[test]
+    fn test_4() {
+        assert!(vec_eq(Solution::two_sum(vec![1, 2, 3, 4, 5], 9), vec![3, 4]));
+    }
 }
