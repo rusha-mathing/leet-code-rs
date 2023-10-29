@@ -6,17 +6,13 @@ impl Solution {
     pub fn length_of_longest_substring(s: String) -> i32 {
         let mut hash = HashMap::new();
         let mut i = 0;
-        let mut ans = 0;
-        for (j, ch) in s.char_indices() {
-            if hash.contains_key(&ch) {
-                i = i.max(hash.insert(ch, j).unwrap() + 1);
-            } else {
-                hash.insert(ch, j);
-            }
-            if j - i + 1 > ans {
-                ans = j - i + 1;
-            }
-        }
-        ans as i32
+        s.char_indices()
+            .map(|(j, ch)| {
+                let temp = hash.insert(ch, j).map_or(0, |x| x + 1);
+                i = usize::max(i, temp);
+                j - i + 1
+            })
+            .max()
+            .unwrap_or(0) as i32
     }
 }
