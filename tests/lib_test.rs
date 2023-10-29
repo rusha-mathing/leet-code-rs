@@ -34,7 +34,7 @@ mod tests {
     fn test_4() {
         assert_eq!(
             Solution::add_two_numbers(vec_to_list_node(vec![8]), vec_to_list_node(vec![7])),
-            vec_to_list_node(vec![1, 5])
+            vec_to_list_node(vec![5, 1])
         )
     }
 

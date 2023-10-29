@@ -20,6 +20,5 @@ pub fn vec_to_list_node(nums: Vec<i32>) -> Option<Box<ListNode>> {
         acc = &mut acc.insert(node).next;
         acc
     });
-    println!("{:#?}", head);
     head
 }
