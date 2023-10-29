@@ -83,7 +83,7 @@ mod tests {
 
     #[test]
     fn test_16() {
-        helper("yxzzy", 4);
+        helper("yxzzy", 3);
     }
 
     #[test]
@@ -108,7 +108,7 @@ mod tests {
 
     #[test]
     fn test_21() {
-        helper("0010010", 3);
+        helper("0010010", 2);
     }
 
     #[test]
@@ -138,17 +138,17 @@ mod tests {
 
     #[test]
     fn test_27() {
-        helper("zxcvbnmasdfghjklqwerty", 21);
+        helper("zxcvbnmasdfghjklqwerty", 22);
     }
 
     #[test]
     fn test_28() {
-        helper("abacadae", 5);
+        helper("abacadae", 3);
     }
 
     #[test]
     fn test_29() {
-        helper("abcbdefghijklmnop", 14);
+        helper("abcbdefghijklmnop", 15);
     }
 
     #[test]
@@ -173,7 +173,7 @@ mod tests {
 
     #[test]
     fn test_34() {
-        helper("ddddddeeeeeeffff", 3);
+        helper("ddddddeeeeeeffff", 2);
     }
 
     #[test]
@@ -198,11 +198,19 @@ mod tests {
 
     #[test]
     fn test_39() {
-        helper("mnopqrstuvw", 12);
+        helper("mnopqrstuvw", 11);
     }
 
     #[test]
     fn test_40() {
         helper("abbbbaaa", 2);
+    }
+
+    #[test]
+    fn test_41() {
+        helper(
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ ".repeat(100).as_str(),
+        95
+        );
     }
 }
