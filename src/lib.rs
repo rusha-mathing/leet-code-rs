@@ -11,9 +11,21 @@ impl Solution {
         }
     }
 
-    fn merge(mut nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
-        nums1.extend(nums2);
-        nums1.sort();
-        nums1
+    fn merge(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
+        let mut result = Vec::with_capacity(nums1.len() + nums2.len());
+        let mut nums1 = nums1.into_iter().peekable();
+        let mut nums2 = nums2.into_iter().peekable();
+        while let (Some(&i), Some(&j)) = (nums1.peek(), nums2.peek()) {
+            result.push(if i < j {
+                nums1.next();
+                i
+            } else {
+                nums2.next();
+                j
+            })
+        }
+        result.extend(nums1);
+        result.extend(nums2);
+        result
     }
 }
