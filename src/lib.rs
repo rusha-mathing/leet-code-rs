@@ -1,3 +1,7 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+pub struct Solution;
+
+impl Solution {
+    pub fn convert(s: String, num_rows: i32) -> String {
+        todo!()
+    }
 }
