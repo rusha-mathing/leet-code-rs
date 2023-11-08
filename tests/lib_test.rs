@@ -8,7 +8,7 @@ mod tests {
 
     #[test]
     fn test_1() {
-        helper("PAYPALISHIRUNG", 3, "PAHNAPLSIIGYIR");
+        helper("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR");
     }
     
     #[test]
@@ -68,7 +68,7 @@ mod tests {
     
     #[test]
     fn test_13() {
-        helper("ZIGZAG", 3, "ZZIAGG");
+        helper("ZIGZAG", 3, "ZAIZGG");
     }
     
     #[test]
