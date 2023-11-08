@@ -127,6 +127,36 @@ mod tests {
         helper("  words -42", 0);
     }
 
+    #[test]
+    fn test_26() {
+        helper("++34", 0);
+    }
+
+    #[test]
+    fn test_27() {
+        helper("+-34", 0);
+    }
+
+    #[test]
+    fn test_28() {
+        helper("-+34", 0);
+    }
+
+    #[test]
+    fn test_29() {
+        helper("--34", 0);
+    }
+
+    #[test]
+    fn test_30() {
+        helper("  --30", 0);
+    }
+
+    #[test]
+    fn test_31() {
+        helper(" - ", 0);
+    }
+
     fn helper(s: &str, expected: i32) {
         assert_eq!(Solution::my_atoi(s.to_string()), expected)
     }
