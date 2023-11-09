@@ -101,4 +101,9 @@ mod tests {
     fn test_20() {
         assert_eq!(Solution::is_palindrome(1001001), true);
     }
+
+    #[test]
+    fn test_21() {
+        assert_eq!(Solution::is_palindrome(i32::MAX), false);
+    }
 }

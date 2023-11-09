@@ -7,7 +7,10 @@ impl Solution {
         }
         let (mut rev, mut temp): (i32, i32) = (0, x);
         while temp > 0 {
-            rev = rev.saturating_mul(10).saturating_add(temp % 10);
+            rev = match rev.checked_mul(10).and_then(|x| x.checked_add(temp % 10)) {
+                Some(x) => x,
+                None => return false,
+            };
             temp /= 10;
         }
         rev == x
