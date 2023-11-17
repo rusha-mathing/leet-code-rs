@@ -12,7 +12,7 @@ impl Solution {
         let p_ch = p.next();
         return if p_ch == None {
             s.next() == None
-        } else if p.clone().next().is_some_and(|x| x == '*') {
+        } else if p.clone().next().map_or(false, |ch| ch == '*') {
             let p_ch = p_ch.unwrap();
             let mut s_clone = s.clone();
             let mut s_ch = s_clone.next();
@@ -21,7 +21,7 @@ impl Solution {
                 Some('*'),
                 "Excepted that this if branch is matching the star case"
             );
-            while s_ch.is_some_and(|ch| is_match(ch, p_ch)) {
+            while s_ch.map_or(false, |ch| is_match(ch, p_ch)) {
                 if Self::is_match_chars(s_clone.clone(), p.clone()) {
                     return true;
                 }
@@ -34,7 +34,7 @@ impl Solution {
             Self::is_match_chars(s, p)
         } else {
             false
-        }
+        };
     }
 }
 
