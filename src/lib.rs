@@ -16,14 +16,19 @@ const UNITS: &[(&str, i32)] = &[
 ];
 
 impl Solution {
-    pub fn int_to_roman(mut num: i32) -> String {
+    pub fn roman_to_int(num: String) -> i32 {
+        let mut temp = num.as_str();
         UNITS
             .iter()
+            .rev()
             .map(|(unit, value)| {
-                let quantity = num / value;
-                num -= quantity * value;
-                unit.repeat(quantity as usize)
+                let mut result = 0;
+                while let Some(new) = temp.strip_suffix(unit) {
+                    temp = new;
+                    result += value;
+                }
+                result
             })
-            .fold(String::new(), |a, b| a + &b)
+            .fold(0, |a, b| a + b)
     }
 }

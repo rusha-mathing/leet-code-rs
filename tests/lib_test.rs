@@ -2,8 +2,8 @@
 mod tests {
     use leet_code_rs::*;
 
-    fn helper(n: i32, except: &str) {
-        assert_eq!(Solution::int_to_roman(n), except)
+    fn helper(except: i32, num: &str) {
+        assert_eq!(Solution::roman_to_int(num.to_string()), except);
     }
 
     #[test]
