@@ -1,3 +1,9 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+use std::collections::HashMap;
+
+pub struct Solution;
+
+impl Solution {
+    pub fn letter_combinations(digits: String) -> Vec<String> {
+        todo!()
+    }
 }
