@@ -308,4 +308,9 @@ mod tests {
             vec![vec![0, 0, 0, 0]],
         )
     }
+
+    #[test]
+    fn test_21() {
+        helper(Solution::four_sum(vec![1000000000,1000000000,1000000000,1000000000], -294967296), vec![])
+    }
 }
