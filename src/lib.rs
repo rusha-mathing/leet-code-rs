@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 pub struct Solution;
 
 const LETTERS_BY_DIGIT: &[&str] = &[
@@ -22,7 +20,7 @@ impl Solution {
         result.unwrap_or_default()
     }
 
-    pub fn digit_and_str_product(digit: char, preffix: &str) -> Vec<String> {
+    fn digit_and_str_product(digit: char, preffix: &str) -> Vec<String> {
         let digit = digit.to_digit(10).expect("Digits must contain digit!") as usize;
         LETTERS_BY_DIGIT
             .get(digit)
