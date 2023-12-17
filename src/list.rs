@@ -13,6 +13,15 @@ impl ListNode {
     }
 }
 
+pub fn list_len(mut head: &Node) -> usize {
+    let mut ans = 0;
+    while let Some(node) = head {
+        head = &node.next;
+        ans += 1;
+    }
+    ans
+}
+
 pub fn vec_to_list_node(nums: Vec<i32>) -> Option<Box<ListNode>> {
     let nums = nums.into_iter().map(ListNode::new).map(Box::new);
     let mut head: Node = None;

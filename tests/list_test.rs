@@ -50,4 +50,22 @@ mod tests {
             }))
         )
     }
+
+    #[test]
+    fn test_empty_len() {
+        let node = vec_to_list_node(vec![]);
+        assert_eq!(list_len(&node), 0);
+    }
+
+    #[test]
+    fn test_one_len() {
+        let node = vec_to_list_node(vec![1]);
+        assert_eq!(list_len(&node), 1);
+    }
+
+    #[test]
+    fn test_many_len() {
+        let node = vec_to_list_node((1..=100).collect());
+        assert_eq!(list_len(&node), 100);
+    }
 }
