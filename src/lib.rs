@@ -1,29 +1,33 @@
-/// The structure definition for this module can be found in list.rs
 pub mod list;
 
 use list::ListNode;
-
-use crate::list::list_len;
 pub struct Solution;
 type Node = Option<Box<ListNode>>;
 
-fn helper(val: i32) -> Box<ListNode> {
-    Box::new(ListNode::new(val))
-}
-
 impl Solution {
-    pub fn remove_nth_from_end(mut head: Node, n: i32) -> Node {
-        let n = n as usize;
-        let mut len = list_len(&head);
+    pub fn merge_two_lists(mut list1: Node, mut list2: Node) -> Node {
         let mut result = None;
         let mut tail = &mut result;
-        while len > n  {
-            let temp = head.expect("Except that n is not great that len!");
-            tail = &mut tail.insert(helper(temp.val)).next;
-            head = temp.next;
-            len -= 1;
+        while let Some(val) = get_min(&mut list1, &mut list2) {
+            tail = &mut tail.insert(val).next;
         }
-        *tail = head.expect("Except n >= 1").next;
         result
+    }
+}
+
+fn get_min(list1: &mut Node, list2: &mut Node) -> Node {
+    match (list1.take(), list2.take()) {
+        (None, None) => None,
+        (None, Some(node)) | (Some(node), None) => {
+            (*list1, *list2) = (None, None);
+            Some(node)
+        }
+        (Some(i), Some(j)) => Some(Box::new(ListNode::new(if i.val < j.val {
+            (*list1, *list2) = (i.next, Some(j));
+            i.val
+        } else {
+            (*list1, *list2) = (Some(i), j.next);
+            j.val
+        }))),
     }
 }
