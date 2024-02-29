@@ -1,3 +1,4 @@
+use std::cmp::Ordering;
 pub type Node = Option<Box<ListNode>>;
 
 #[derive(PartialEq, Eq, Clone, Debug)]
@@ -30,4 +31,16 @@ pub fn vec_to_list_node(nums: Vec<i32>) -> Option<Box<ListNode>> {
         acc
     });
     head
+}
+
+impl PartialOrd for ListNode {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        self.val.partial_cmp(&other.val)
+    }
+}
+
+impl Ord for ListNode {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.val.cmp(&other.val)
+    }
 }
